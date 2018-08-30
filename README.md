@@ -1,14 +1,4 @@
-# Webpack 4 Setup
+# Booksheld
 
-Simple webpack 4 setup for react application 
+In this application you will be able to manage your reading lists
 
-### Installing
-```
-install dependencies:
-    yarn install
-```
-
-### In order to run setup
-```
-yarn dev-server
-```
