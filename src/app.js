@@ -4,19 +4,13 @@ import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import './styles/main.scss';
 
-import Header from './components/Header';
-import SearchArea from './components/SearchArea';
-import SearchResults from './components/SearchResults';
+import AppRouter from './routes/appRouter';
 
 const store = configureStore();
 
 const jsx = (
     <Provider store={store}>
-        <div>
-            <Header />
-            <SearchArea />
-            <SearchResults />
-        </div>
+        <AppRouter />
     </Provider>
 );
 

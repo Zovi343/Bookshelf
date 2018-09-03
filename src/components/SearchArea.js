@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-import { setSearchValue, setSearchResult } from '../actions/searchBook';
+import { setSearchValue, setSearchResult } from '../actions/searchBookActions';
 
 export class SearchArea extends React.Component {
     state = {
@@ -32,18 +33,22 @@ export class SearchArea extends React.Component {
             let results = [];
             for(let i = 0; i < 10 ; i++) {
                 const obj = {
-                    id: xmlDoc.getElementsByTagName("id")[i].innerHTML,
+                    id: xmlDoc.getElementsByTagName("best_book")[i].firstChild.nextSibling.innerHTML,
                     author: xmlDoc.getElementsByTagName("name")[i].innerHTML,
                     title: xmlDoc.getElementsByTagName("title")[i].innerHTML,
                     rating: xmlDoc.getElementsByTagName("average_rating")[i].innerHTML,
-                    image_url:  xmlDoc.getElementsByTagName("image_url")[i].innerHTML
+                    image_url: xmlDoc.getElementsByTagName("image_url")[i].innerHTML
                 }
                 results.push(obj);
             }
 
             this.props.setSearchResult(results);
+
         };
     };
+    CreateShelf = () => {
+        this.props.history.push('/create');
+    }
     render () {
         return (
             <div>
@@ -51,6 +56,7 @@ export class SearchArea extends React.Component {
                     <input onChange={this.onSearchChange} type="text" placeholder="Search" value={this.state.search} />
                     <input type="submit" value="Submit"/>
                 </form>
+                <Link to="/create">Create Shelf</Link>
             </div>
         );
     };
