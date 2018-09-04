@@ -11,6 +11,8 @@ export class SearchResults extends React.Component {
     getBookClick = async (book) => {
         this.props.getBookId(book.id);
 
+
+        // Just for development !! ////
         history.push('/');
         const key ='x0DZfeuqgRLfSZkXTwBv5Q';
         const proxy = 'https://cors-anywhere.herokuapp.com/';
@@ -19,12 +21,10 @@ export class SearchResults extends React.Component {
 
         const parser =  new DOMParser();
         const xmlDoc = parser.parseFromString(response.data, "text/xml");
-        console.log(xmlDoc);
 
         let description = xmlDoc.getElementsByTagName("description")[0].innerHTML;
         description = description.substring(9, description.length - 3);
         
-        console.log(typeof(description));
         book = Object.assign(book, { description})
         this.props.getBook(book);
     };

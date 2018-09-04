@@ -8,6 +8,7 @@ import SearchResults from '../components/SearchResults';
 import BookView from '../components/BookView';
 import CreateShelf from '../components/CreateShelf';
 import ShelfList from '../components/shelfList';
+import ShelfView from '../components/shelfView';
  
 export const history = createHistory();
 
@@ -20,6 +21,7 @@ const AppRouter = () => (
             
             <Switch>
                 <Route path="/" component={BookView} exact={true} />
+                <Route path="/shelf/:id" component={ShelfView} />
                 <Route path="/create" component={CreateShelf} />
             </Switch>
 
