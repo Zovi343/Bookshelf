@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import { setSearchValue, setSearchResult } from '../actions/searchBookActions';
+import { setSearchValue, setSearchValueBefore, setSearchResult } from '../actions/searchBookActions';
 
 export class SearchArea extends React.Component {
     state = {
@@ -18,9 +18,12 @@ export class SearchArea extends React.Component {
     onSubmit = async (e) => {
         e.preventDefault();
         this.props.setSearchValue(this.state.search);
+        const search = this.state.search;
+
         this.setState(() => ({
             search: ''
         }));
+
         if (this.state.search) {
             const key ='x0DZfeuqgRLfSZkXTwBv5Q';
             const proxy = 'https://cors-anywhere.herokuapp.com/';
@@ -30,25 +33,29 @@ export class SearchArea extends React.Component {
     
             const parser =  new DOMParser();
             const xmlDoc = parser.parseFromString(response.data, "text/xml");
+        
             let results = [];
-            for(let i = 0; i < 10 ; i++) {
+            let lengthOfRes = xmlDoc.getElementsByTagName("work").length;
+
+            if (lengthOfRes > 10) {
+                lengthOfRes = 10;
+            }
+            
+            for(let i = 0; i < lengthOfRes ; i++) {
                 const obj = {
                     id: xmlDoc.getElementsByTagName("best_book")[i].firstChild.nextSibling.innerHTML,
                     author: xmlDoc.getElementsByTagName("name")[i].innerHTML,
                     title: xmlDoc.getElementsByTagName("title")[i].innerHTML,
                     rating: xmlDoc.getElementsByTagName("average_rating")[i].innerHTML,
                     image_url: xmlDoc.getElementsByTagName("image_url")[i].innerHTML
-                }
+                };
                 results.push(obj);
-            }
+            };
 
             this.props.setSearchResult(results);
-
+            this.props.setSearchValueBefore(search);
         };
     };
-    CreateShelf = () => {
-        this.props.history.push('/create');
-    }
     render () {
         return (
             <div>
@@ -64,6 +71,7 @@ export class SearchArea extends React.Component {
 
 const mapDispatchToProps = (dispatch) => ({
     setSearchValue: (value) => dispatch(setSearchValue(value)),
+    setSearchValueBefore: (value) => dispatch(setSearchValueBefore(value)),
     setSearchResult: (results) => dispatch(setSearchResult(results))
 });
 

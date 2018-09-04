@@ -4,6 +4,11 @@ export const setSearchValue = (value) => ({
     value
 });
 
+export const setSearchValueBefore = (value) => ({
+    type: 'SET_SEARCH_VALUE_BEFORE',
+    value
+});
+
 export const setSearchResult = (results) => ({
     type: 'SET_SEARCH_RESULT',
     results

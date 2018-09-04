@@ -9,7 +9,7 @@ import BookView from '../components/BookView';
 import CreateShelf from '../components/CreateShelf';
 import ShelfList from '../components/shelfList';
 import ShelfView from '../components/shelfView';
- 
+
 export const history = createHistory();
 
 const AppRouter = () => (
