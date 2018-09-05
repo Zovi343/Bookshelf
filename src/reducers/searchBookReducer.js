@@ -4,7 +4,8 @@ const defaultState = {
     searchValueBefore: null,
     results: [],
     currentBookId: null,
-    currentBook: {}
+    currentBook: {},
+    apiErr: null
 }
 
 export default (state = defaultState, action) => {
@@ -19,6 +20,8 @@ export default (state = defaultState, action) => {
             return Object.assign({}, state, {currentBookId: action.bookId});
         case 'GET_BOOK': 
             return Object.assign({}, state, {currentBook: action.book});
+        case 'API_ERR': 
+            return Object.assign({}, state, {apiErr: 'We are sorry, but Goodreads services are not responding. Please try to reconnect later.'});
         default: 
             return state;
     };

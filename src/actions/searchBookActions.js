@@ -23,3 +23,7 @@ export const getBook = (book) => ({
     type: 'GET_BOOK',
     book
 });
+
+export const apiErr = () => ({
+    type: 'API_ERR'
+});
