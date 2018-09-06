@@ -2,7 +2,7 @@ import React from 'react';
 
 export class SearchResultItem extends React.Component {
     onClick = () => {
-        this.props.getBookClick(this.props.book);
+        this.props.getBookClick(this.props.book.id);
     };
     render () {
         return (

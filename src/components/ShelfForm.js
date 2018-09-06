@@ -1,5 +1,4 @@
 import React from 'react';
-import uuid from 'uuid';
 
 export class CreateShelf extends React.Component {
     state = {
@@ -21,13 +20,12 @@ export class CreateShelf extends React.Component {
         } else {
             this.props.newShelf({
             name: this.state.name,
-            id: uuid(),
             books: []        
             });
             this.setState(() => ({
                 name: ''
             }));
-        }
+        };
     };
     render () {
         return (

@@ -5,6 +5,7 @@ import configureStore from './store/configureStore';
 import './styles/main.scss';
 
 import AppRouter from './routes/appRouter';
+import { startSetShelfs } from './actions/shelfActions';
 
 const store = configureStore();
 
@@ -14,4 +15,6 @@ const jsx = (
     </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('app'));
+store.dispatch(startSetShelfs()).then(() => {
+    ReactDOM.render(jsx, document.getElementById('app'));
+});

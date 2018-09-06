@@ -3,35 +3,14 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import SearchResultItem from './searchResultsItem';
-import { getBookId, getBook, apiErr } from '../actions/searchBookActions';
+import { startGetBook } from '../actions/searchBookActions';
 import { history } from '../routes/appRouter'; // <-- this is just for development 
 
 
 export class SearchResults extends React.Component {
-    getBookClick = async (book) => {
-        try {
-            this.props.getBookId(book.id);
-    
-            // History like this just for development !! ////
-            history.push('/');
-            const key ='x0DZfeuqgRLfSZkXTwBv5Q';
-            const proxy = 'https://cors-anywhere.herokuapp.com/';
-    
-            const response = await  axios(`${proxy}https://www.goodreads.com/book/show/${book.id}.xml?key=${key}`);
-    
-            const parser =  new DOMParser();
-            const xmlDoc = parser.parseFromString(response.data, "text/xml");
-    
-            let description = xmlDoc.getElementsByTagName("description")[0].innerHTML;
-            // This removes CDATA
-            description = description.substring(9, description.length - 3);
-            
-            book = Object.assign(book, { description})
-            this.props.getBook(book);
-        } catch (e) {
-            console.log('----Error In SearchResult', e);
-            this.props.apiErr();
-        }
+    getBookClick = (id) => {
+        this.props.startGetBook(id);
+        history.push('/');
     };
     render () {
     return (
@@ -60,9 +39,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    getBookId: (bookId) => dispatch(getBookId(bookId)),
-    getBook: (book) => dispatch(getBook(book)),
-    apiErr: () => dispatch(apiErr())
+    startGetBook: (id) => dispatch(startGetBook(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);

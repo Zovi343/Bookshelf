@@ -2,15 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ShelfForm from './ShelfForm';
-import { deleteShelf, editShelf } from '../actions/shelfActions';
+import { startDeleteShelf, startEditShelf } from '../actions/shelfActions';
 
 export class EditShelf extends React.Component {
     clickDelete = () => {
-        this.props.deleteShelf(this.props.currentShelf.id);
+        this.props.startDeleteShelf(this.props.currentShelf.id);
         this.props.history.push('/');
     };
     submitEdit = (shelf) => {
-        this.props.editShelf(this.props.currentShelf.id, shelf.name);
+        this.props.startEditShelf(this.props.currentShelf.id, shelf.name);
         this.props.history.push(`/shelf/${this.props.currentShelf.id}`);
     };
     render () {
@@ -29,8 +29,8 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    deleteShelf: (id) => dispatch(deleteShelf(id)),
-    editShelf: (id, name) => dispatch(editShelf(id, name)),
+    startDeleteShelf: (id) => dispatch(startDeleteShelf(id)),
+    startEditShelf: (id, name) => dispatch(startEditShelf(id, name)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditShelf);

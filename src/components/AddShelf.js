@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { createShelf } from '../actions/shelfActions';
+import { startCreateShelf } from '../actions/shelfActions';
 import ShelfForm from './ShelfForm';
 
 export class AddShelf extends React.Component {
     newShelf = (shelf) => {
-        this.props.createShelf(shelf);
+        this.props.startCreateShelf(shelf);
     }
     render () {
         return (
@@ -22,7 +22,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    createShelf: (shelf) => dispatch(createShelf(shelf))
+    startCreateShelf: (shelf) => dispatch(startCreateShelf(shelf))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddShelf);

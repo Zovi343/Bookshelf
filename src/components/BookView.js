@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { MdAddCircleOutline } from "react-icons/md";
 
-import { addBook } from '../actions/shelfActions';
+import { startAddBook } from '../actions/shelfActions';
 
 
 
@@ -18,13 +18,15 @@ export class BookView extends React.Component {
     };
     onSubmit = (e) => {
         e.preventDefault();
-        const savedBook = {
-            id: this.props.book.id, 
-            title: this.props.book.title, 
-            author: this.props.book.author
+        if (!!this.state.currentShelf){
+            let id = this.props.shelfs.find((shelf) => shelf.name === this.state.currentShelf).id;
+            const savedBook = {
+                id: this.props.book.id, 
+                title: this.props.book.title, 
+                author: this.props.book.author
+            };
+            this.props.startAddBook(id, savedBook);
         };
-
-        this.props.addBook(this.state.currentShelf, savedBook);
     };
     descriptionText = () => {
         return { __html:`${this.props.book.description}`};
@@ -66,9 +68,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    addBook: (shelf, book) => dispatch(addBook(shelf, book))
+    startAddBook: (shelf, book) => dispatch(startAddBook(shelf, book))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookView);
 
-//<option key={shelf.id}>{ shelf.name }</option>
