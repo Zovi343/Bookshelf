@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdHighlightOff } from "react-icons/md";
 
 export class ShelfViewItem extends React.Component {
     onClickDelete = () => {
@@ -13,7 +14,7 @@ export class ShelfViewItem extends React.Component {
                 <button onClick={this.onClickTitle}>
                     <p>{this.props.title} by {this.props.author}</p>
                 </button>
-                <button onClick={this.onClickDelete}>Delete</button>
+                <button onClick={this.onClickDelete}><MdHighlightOff /></button>
             </li>
         );
     };

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { MdSearch } from "react-icons/md";
 
 import { setSearchValue, setSearchValueBefore, setSearchResult, apiErr } from '../actions/searchBookActions';
 
@@ -66,7 +67,7 @@ export class SearchArea extends React.Component {
             <div>
                 <form onSubmit={this.onSubmit}>
                     <input onChange={this.onSearchChange} type="text" placeholder="Search" value={this.state.search} />
-                    <input type="submit" value="Submit"/>
+                    <button disabled={ !!this.state.search ? false : true }><MdSearch /></button>
                 </form>
                 <Link to="/create">Create Shelf</Link>
             </div>

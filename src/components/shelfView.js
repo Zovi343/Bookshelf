@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { MdSettings } from "react-icons/md";
 
 import ShelfViewItem from './shelfViewItem';
 import { getBookId, getBook, apiErr } from '../actions/searchBookActions';
@@ -61,7 +62,7 @@ export class ShelfView extends React.Component {
                                 <form>
                                     <input onChange={this.onSearchChange} type="text" placeholder="Search within shelf" value={this.state.search}/>
                                 </form>
-                                <button onClick={this.editShelf}>Edit Shelf</button>
+                                <button onClick={this.editShelf}><MdSettings /></button>
                                 <ul>
                                     {
                                         !!this.state.search

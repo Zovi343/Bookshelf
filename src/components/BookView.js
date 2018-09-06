@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { MdAddCircleOutline } from "react-icons/md";
 
 import { addBook } from '../actions/shelfActions';
+
 
 
 export class BookView extends React.Component {
@@ -41,14 +43,15 @@ export class BookView extends React.Component {
                         <p dangerouslySetInnerHTML={ this.descriptionText() }></p>
 
                         <form onSubmit={this.onSubmit}>
-                            <select onChange={this.onChange}>
+                            <label htmlFor="shelfs"> Add to shelf</label>
+                            <select onChange={this.onChange} name="shelfs" id="shelfs">
                             <option>&nbsp;</option>
                             { 
                                 this.props.shelfs.filter((shelf) => !shelf.books.find((book) => book.id === this.props.book.id))
                                 .map((shelf) => <option key={shelf.id}>{ shelf.name }</option>)
                             }
                             </select>
-                            <input type="submit" value="Add"/>
+                            <button><MdAddCircleOutline /></button>
                         </form>
                      </div>
                     : <div></div>
