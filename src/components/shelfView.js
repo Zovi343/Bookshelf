@@ -2,10 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { MdSettings } from "react-icons/md";
 
-import ShelfViewItem from './shelfViewItem';
+import ShelfViewItem from './ShelfViewItem';
 import {  startGetBook } from '../actions/searchBookActions';
 import {  startRemoveBook } from '../actions/shelfActions';
-import { history } from '../routes/appRouter';
 
 export class ShelfView extends React.Component {
     state = {
@@ -16,7 +15,7 @@ export class ShelfView extends React.Component {
     };
     getBookClick = (id) => {
         this.props.startGetBook(id);
-        history.push('/');
+        this.props.history.push('/home');
     };
     editShelf = () => {
         this.props.history.push(`/edit/${this.props.currentShelf.id}`);

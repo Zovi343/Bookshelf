@@ -1,16 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 
-import SearchResultItem from './searchResultsItem';
+import SearchResultItem from './SearchResultsItem';
 import { startGetBook } from '../actions/searchBookActions';
-import { history } from '../routes/appRouter'; // <-- this is just for development 
 
 
 export class SearchResults extends React.Component {
     getBookClick = (id) => {
         this.props.startGetBook(id);
-        history.push('/');
+        this.props.history.push('/home');
     };
     render () {
     return (

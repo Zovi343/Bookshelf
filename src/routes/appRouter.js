@@ -5,29 +5,23 @@ import createHistory from 'history/createBrowserHistory';
 import AddShelf from '../components/AddShelf';
 import BookView from '../components/BookView';
 import EditShelf from '../components/EditShelf';
-import Header from '../components/Header';
-import SearchArea from '../components/SearchArea';
-import SearchResults from '../components/SearchResults';
-import ShelfList from '../components/shelfList';
-import ShelfView from '../components/shelfView';
+import LoginPage from '../components/LoginPage';
+import ShelfView from '../components/ShelfView';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 export const history = createHistory();
 
 const AppRouter = () => (
     <Router history={history}>
         <div>
-            <Header />
-            <SearchArea />
-            <SearchResults />
-            
             <Switch>
-                <Route path="/" component={BookView} exact={true} />
-                <Route path="/shelf/:id" component={ShelfView} />
-                <Route path="/create" component={AddShelf} />
-                <Route path="/edit/:id" component={EditShelf} />
+                <PublicRoute path="/" component={LoginPage} exact={true} />
+                <PrivateRoute path="/home" component={BookView} />
+                <PrivateRoute path="/shelf/:id" component={ShelfView} />
+                <PrivateRoute path="/create" component={AddShelf} />
+                <PrivateRoute path="/edit/:id" component={EditShelf} />
             </Switch>
-
-            <ShelfList />
         </div>
     </ Router>
 );

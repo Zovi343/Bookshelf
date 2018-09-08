@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import ShelfListItem from './shelfListItem';
+import ShelfListItem from './ShelfListItem';
 
 export class shelfList extends React.Component {
     render () {
@@ -10,7 +10,7 @@ export class shelfList extends React.Component {
                 <h3>Your Shelfs:</h3>
                 <ol>
                     {
-                        this.props.shelfs.map((shelf) => <ShelfListItem key={shelf.id} id={shelf.id} name={shelf.name} />)
+                        this.props.shelfs.map((shelf) => <ShelfListItem key={shelf.id} id={shelf.id} name={shelf.name} history={this.props.history}/>)
                     }
                 </ol>
             </div>

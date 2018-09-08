@@ -1,9 +1,9 @@
 import database from '../firebase/firebase';
 
 export const startSetShelfs = () => {
-    return (dispatch) => {
-
-        return database.ref(`shelfs`).once('value').then((snapshot) => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/shelfs`).once('value').then((snapshot) => {
             let shelfs = [];
             snapshot.forEach((childSnapshot) => {
                 let newShelf = childSnapshot.val();
@@ -32,9 +32,9 @@ export const startSetShelfs = () => {
 };
 
 export const startCreateShelf = (shelf) => {
-    return async (dispatch) => {
-
-        return database.ref(`shelfs`).push(shelf).then((ref) => {
+    return async (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/shelfs`).push(shelf).then((ref) => {
             shelf.id = ref.key;
             dispatch(createShelf(shelf));
 
@@ -43,36 +43,40 @@ export const startCreateShelf = (shelf) => {
 };
 
 export const startDeleteShelf = (id) => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
 
-        return database.ref(`shelfs/${id}`).remove().then(() => {
+        const uid = getState().auth.uid;
+        return database.ref(`users/${uid}/shelfs/${id}`).remove().then(() => {
             dispatch(deleteShelf(id));
         }).catch((e) => console.log('Error In startDeleteShelf', e));
     };
 };
 
 export const startEditShelf = (id, name) => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
 
-        database.ref(`shelfs/${id}`).update({ name }).then(() => {
+        const uid = getState().auth.uid;
+        database.ref(`users/${uid}/shelfs/${id}`).update({ name }).then(() => {
             dispatch(editShelf(id, name));
         }).catch((e) => console.log('Error In startEditShelfs', e));
     };
 };
 
 export const startAddBook = (id, book) => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
 
-        database.ref(`shelfs/${id}/books/${book.id}`).set({ title: book.title, author: book.author}).then(() => {
+        const uid = getState().auth.uid;
+        database.ref(`users/${uid}/shelfs/${id}/books/${book.id}`).set({ title: book.title, author: book.author}).then(() => {
             dispatch(addBook(id, book));
         }).catch((e) => console.log('Error In startAddBook', e));
     };
 };
 
 export const startRemoveBook = (shelfId, bookId) => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
 
-        database.ref(`shelfs/${shelfId}/books/${bookId}`).remove().then(() => {
+        const uid = getState().auth.uid;
+        database.ref(`users/${uid}/shelfs/${shelfId}/books/${bookId}`).remove().then(() => {
             dispatch(removeBook(shelfId, bookId));
         }).catch((e) => console.log('Error In startRemoveBook', e));
     };

@@ -54,7 +54,6 @@ export const startGetBook = (id) => {
 
             const parser =  new DOMParser();
             const xmlDoc = parser.parseFromString(response.data, "text/xml");
-            console.log(xmlDoc);
             const book = {
                 id: xmlDoc.getElementsByTagName("id")[0].innerHTML,
                 author: xmlDoc.getElementsByTagName("name")[0].innerHTML,
@@ -90,6 +89,10 @@ export const setSearchResult = (results) => ({
     results
 });
 
+export const unsetSearchResult = () => ({
+    type: 'UNSET_SEARCH_RESULT'
+});
+
 export const getBookId = (bookId) => ({
     type: 'GET_BOOK_ID',
     bookId
@@ -98,6 +101,14 @@ export const getBookId = (bookId) => ({
 export const getBook = (book) => ({
     type: 'GET_BOOK',
     book
+});
+
+export const unsetBookId = () => ({
+    type: 'UNSET_BOOK_ID'
+});
+
+export const unsetBook = () => ({
+    type: 'UNSET_BOOK'
 });
 
 export const apiErr = () => ({

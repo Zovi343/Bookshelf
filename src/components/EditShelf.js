@@ -7,7 +7,7 @@ import { startDeleteShelf, startEditShelf } from '../actions/shelfActions';
 export class EditShelf extends React.Component {
     clickDelete = () => {
         this.props.startDeleteShelf(this.props.currentShelf.id);
-        this.props.history.push('/');
+        this.props.history.push('/home');
     };
     submitEdit = (shelf) => {
         this.props.startEditShelf(this.props.currentShelf.id, shelf.name);
