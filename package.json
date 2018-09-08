@@ -4,9 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config  webpack.prod.js",
-    "dev-server": "webpack-dev-server --open --config webpack.dev.js"
+    "dev-server": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "node server/server.js",
+    "heroku-postbuild":"yarn run build"
+  },
+  "engines": {
+    "node": "8.11.3"
   },
   "dependencies": {
     "@babel/core": "^7.0.0",
