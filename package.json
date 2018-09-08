@@ -7,10 +7,11 @@
     "build": "webpack --config  webpack.prod.js",
     "dev-server": "webpack-dev-server --open --config webpack.dev.js",
     "start": "node server/server.js",
-    "heroku-postbuild":"yarn run build"
+    "heroku-postbuild": "yarn run build"
   },
   "engines": {
-    "node": "8.11.3"
+    "node": "8.11.3",
+    "yarn": "1.9.4"
   },
   "dependencies": {
     "@babel/core": "^7.0.0",
@@ -22,7 +23,6 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
-    "dotenv": "^6.0.0",
     "firebase": "^5.4.2",
     "history": "^4.7.2",
     "mini-css-extract-plugin": "^0.4.2",
@@ -41,6 +41,7 @@
     "webpack-merge": "^4.1.4"
   },
   "devDependencies": {
+    "dotenv": "^6.0.0",
     "webpack-dev-server": "^3.1.7"
   }
 }
