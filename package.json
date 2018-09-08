@@ -23,6 +23,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
+    "express-favicon": "^2.0.1",
     "firebase": "^5.4.2",
     "history": "^4.7.2",
     "mini-css-extract-plugin": "^0.4.2",
