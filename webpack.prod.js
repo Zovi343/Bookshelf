@@ -1,12 +1,13 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const merge = require('webpack-merge');
+const path = require('path');
 const common = require('./webpack.common.js');
 const webpack = require('webpack');
 
 module.exports = merge(common, {
     mode: 'production',
     plugins: [
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin(path.join(__dirname, 'public', 'dist')),
         new webpack.DefinePlugin({
             'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
             'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
