@@ -1,12 +1,9 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-const favicon = require('express-favicon');
-
 const publicPath = path.join(__dirname, '..', 'public');
-const port = process.env.PORT || 3000;
 
-app.use(favicon(publicPath + '/images/favicon.png'));
+const port = process.env.PORT || 3000;
 
 // this servers all assest from public directory
 app.use(express.static(publicPath));
