@@ -7,17 +7,34 @@
     @include scrollbar;
 }
 
-.results-item {
-
+.result-item {
 
     button {
         border: none;
         border-bottom: solid 1.5px $grey-light-4;
         background-color: $white;
         display: block;
+        font-family: inherit;
+        font-weight: 600;
         padding: 1rem 1rem;
+        outline: none;
+        transition: all .3s;
         width: 100%;
 
         display: flex;
+        align-items: center;
+
+        .result-author {
+            flex: 1;
+            margin-left: 1rem;
+        }
+
+        &:hover {
+            background-color: $white-off;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
     }
 }

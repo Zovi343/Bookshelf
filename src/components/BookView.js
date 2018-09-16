@@ -41,6 +41,7 @@ export class BookView extends React.Component {
                         { <p>Author: { this.props.book.author}</p>}
                         { <img src={this.props.book.image_url} alt="Book-Cover"/> }
                         { <p>rating: { this.props.book.rating}</p> }
+                        { <p>published: { this.props.book.publication_year}</p> }
                         { <p> Description </p> }
                         <p dangerouslySetInnerHTML={ this.descriptionText() }></p>
 
