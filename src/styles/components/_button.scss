@@ -1,0 +1,25 @@
+.btn {
+    background-color: $brown-light-1;
+    border-radius: 50px;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.35rem;
+    font-family: 'Lato';
+    outline: none;
+    padding: 0.97rem;
+    transition: all .3s;
+    
+
+    line-height: 1;
+    display: inline-block;
+    text-decoration: none;
+
+    &:hover {
+        background-color: $brown-light-2;
+    }
+
+    &:active {
+        transform: scale(0.95) translateY(3px);
+    }
+}

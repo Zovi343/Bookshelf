@@ -14,12 +14,14 @@ export const PrivateRoute = ({
 }) => (
     <Route {...rest} component={(props) => (
         isAuth ? (
-            <div>
+            <div className="main">
                 <Header />
                 <SearchArea />
-                <SearchResults {...props}/>
-                <Component {...props}/>
-                <ShelfList {...props}/>
+                <div className="content">
+                    <SearchResults {...props}/>
+                    <Component {...props}/>
+                    <ShelfList {...props}/>
+                </div>
             </div>
         ) : (
             <Redirect to="/" />

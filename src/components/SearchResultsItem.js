@@ -6,11 +6,14 @@ export class SearchResultItem extends React.Component {
     };
     render () {
         return (
-            <li>
+            <li className="results-item">
                 <button onClick={this.onClick}>
-                    <p>Title: {this.props.book.title}</p>
-                    <p> Author: {this.props.book.author}</p> 
                     <img src={this.props.book.image_url} alt="Book_Image"/>
+                    <div className="results-author">
+                        <p>{this.props.book.title}</p>
+                        <p> by </p>
+                        <p>{this.props.book.author}</p> 
+                    </div>
                 </button>
             </li>
         );

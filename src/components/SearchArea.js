@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import randomWords from 'random-words';
 import { Link } from 'react-router-dom';
 import { MdSearch } from "react-icons/md";
 
@@ -24,14 +25,22 @@ export class SearchArea extends React.Component {
             }));
         };
     };
+    random = () => {
+        const randomSearch = randomWords();
+        this.props.startSearch(randomSearch);
+    };
     render () {
         return (
-            <div>
-                <form onSubmit={this.onSubmit}>
-                    <input onChange={this.onSearchChange} type="text" placeholder="Search" value={this.state.search} />
-                    <button disabled={ !!this.state.search ? false : true }><MdSearch /></button>
-                </form>
-                <Link to="/create">Create Shelf</Link>
+            <div className="search-area">
+                <div className="div-to-center-search-area"></div>
+                <div className="search-area__search-field">
+                    <button className="btn" onClick={this.random}>Random Books</button>
+                    <form className="search-form" onSubmit={this.onSubmit}>
+                        <input onChange={this.onSearchChange} type="text" placeholder="Search Book By Name or Author" value={this.state.search} />
+                        <button disabled={ !!this.state.search ? false : true }><MdSearch /></button>
+                    </form>
+                </div>
+                <Link className="btn" to="/create">Create Shelf</Link>
             </div>
         );
     };

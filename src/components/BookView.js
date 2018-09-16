@@ -34,9 +34,9 @@ export class BookView extends React.Component {
     render () {
         return (
             (!!this.props.bookId && !this.props.book.id) || (this.props.bookId !== this.props.book.id && !!this.props.book.id)
-                ? <h3> Loading ... </h3>
+                ? <div className="book-view"> <h3> Loading ... </h3> </div>
                 : this.props.book.id
-                    ? <div>
+                    ? <div className="book-view">
                         <h2>{ this.props.book.title }</h2>
                         { <p>Author: { this.props.book.author}</p>}
                         { <img src={this.props.book.image_url} alt="Book-Cover"/> }
@@ -56,7 +56,7 @@ export class BookView extends React.Component {
                             <button><MdAddCircleOutline /></button>
                         </form>
                      </div>
-                    : <div></div>
+                    : <div className="book-view"></div>
         );
     };
 };

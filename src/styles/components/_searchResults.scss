@@ -1,0 +1,23 @@
+.search-results {
+    background-color: $white-off;
+    overflow-y: scroll;
+
+    flex: 0 1 20%;  
+
+    @include scrollbar;
+}
+
+.results-item {
+
+
+    button {
+        border: none;
+        border-bottom: solid 1.5px $grey-light-4;
+        background-color: $white;
+        display: block;
+        padding: 1rem 1rem;
+        width: 100%;
+
+        display: flex;
+    }
+}

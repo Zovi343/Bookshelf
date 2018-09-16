@@ -1,0 +1,14 @@
+
+.main {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    background-color: greenyellow;
+
+    flex: 1;
+    display: flex;
+}

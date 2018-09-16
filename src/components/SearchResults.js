@@ -12,7 +12,7 @@ export class SearchResults extends React.Component {
     };
     render () {
     return (
-            <div> 
+            <div className="search-results"> 
                 {
                     !!this.props.apiErrText
                         ? <p>{this.props.apiErrText}</p>

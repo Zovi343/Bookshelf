@@ -1,0 +1,21 @@
+.header {
+    background-color: $brown-dark-1;
+    color: #fff;
+    padding: 1rem 10rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+        font-family: 'Pacifico';
+        font-size: 2.5rem;
+        font-weight: 400;
+    }
+}
+
+.logout {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+}

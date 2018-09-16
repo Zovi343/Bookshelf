@@ -4,9 +4,9 @@ import { startLogout } from '../actions/authActions';
 
 
 export const Header = (props) => (
-    <header>
-        <h1 className="hello">Bookshelf</h1>
-        <button onClick={props.startLogout}>Logout</button>
+    <header className="header">
+        <h1 className="heading">Bookshelf</h1>
+        <button className="logout" onClick={props.startLogout}>Logout</button>
     </header>
 );
 

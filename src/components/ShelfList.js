@@ -6,7 +6,7 @@ import ShelfListItem from './ShelfListItem';
 export class shelfList extends React.Component {
     render () {
         return (
-            <div>
+            <div className="shelf-list">
                 <h3>Your Shelfs:</h3>
                 <ol>
                     {
