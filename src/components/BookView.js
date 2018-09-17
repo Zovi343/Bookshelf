@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { MdAddCircleOutline } from "react-icons/md";
+import { MdAddCircle } from "react-icons/md";
 
 import { startAddBook } from '../actions/shelfActions';
 
@@ -8,7 +8,7 @@ import { startAddBook } from '../actions/shelfActions';
 
 export class BookView extends React.Component {
     state = {
-        currentShelf: ''
+        currentShelf: 'Select Shelf'
     };
     onChange = (e) => {
         const currentShelf = e.target.value;
@@ -18,7 +18,7 @@ export class BookView extends React.Component {
     };
     onSubmit = (e) => {
         e.preventDefault();
-        if (!!this.state.currentShelf){
+        if (this.state.currentShelf !== 'Select Shelf'){
             let id = this.props.shelfs.find((shelf) => shelf.name === this.state.currentShelf).id;
             const savedBook = {
                 id: this.props.book.id, 
@@ -26,10 +26,31 @@ export class BookView extends React.Component {
                 author: this.props.book.author
             };
             this.props.startAddBook(id, savedBook);
-        };
+            return "false";
+        } else {
+            return "true";
+        }
     };
     descriptionText = () => {
         return { __html:`${this.props.book.description}`};
+    };
+    ratingColor = () => {
+        if (this.props.book.rating >= 4){
+            return "top-rating"
+        } else if (this.props.book.rating >= 3) {
+            return "good-rating"
+        } else if (this.props.book.rating >= 2) {
+            return "average-rating"
+        } else {
+            return "bad-rating"
+        }
+    };
+    addAllowed = () => {
+        if(this.state.currentShelf === 'Select Shelf') {
+            return true;
+        } else {
+            return false;
+        }
     };
     render () {
         return (
@@ -37,25 +58,32 @@ export class BookView extends React.Component {
                 ? <div className="book-view"> <h3> Loading ... </h3> </div>
                 : this.props.book.id
                     ? <div className="book-view">
-                        <h2>{ this.props.book.title }</h2>
-                        { <p>Author: { this.props.book.author}</p>}
-                        { <img src={this.props.book.image_url} alt="Book-Cover"/> }
-                        { <p>rating: { this.props.book.rating}</p> }
-                        { <p>published: { this.props.book.publication_year}</p> }
-                        { <p> Description </p> }
-                        <p dangerouslySetInnerHTML={ this.descriptionText() }></p>
+                        <div className="book-image">
+                            <img className="book-image__item image" src={this.props.book.image_url} alt="Book-Cover"/>
+                            <p className="book-image__item" >Rating: <span className={this.ratingColor()}> { this.props.book.rating} </span></p>
+                            <p className="book-image__item" >Published: { this.props.book.publication_year || 'No Data'}</p>
+                        </div>
+                        <div className="book-description">
+                            <div className="title-select-part">
+                                <div className="title-author">
+                                    <h2>{ this.props.book.title }</h2>
+                                    <p className="author-name">by { this.props.book.author}</p>
+                                </div>
+                                <form onSubmit={this.onSubmit}>
+                                    <label htmlFor="shelfs"> Add to shelf:</label>
+                                        <select onChange={this.onChange} name="shelfs" id="shelfs">
+                                        <option>Select Shelf</option>
+                                        { 
+                                            this.props.shelfs.filter((shelf) => !shelf.books.find((book) => book.id === this.props.book.id))
+                                            .map((shelf) => <option key={shelf.id}>{ shelf.name }</option>)
+                                        }
+                                        </select>
+                                    <button className="add-to-shelf" disabled={this.addAllowed()}><MdAddCircle className="add-to-shelf__icon" /></button>
+                                </form>
+                            </div>
+                            <p dangerouslySetInnerHTML={ this.descriptionText() }></p>
+                        </div>
 
-                        <form onSubmit={this.onSubmit}>
-                            <label htmlFor="shelfs"> Add to shelf</label>
-                            <select onChange={this.onChange} name="shelfs" id="shelfs">
-                            <option>&nbsp;</option>
-                            { 
-                                this.props.shelfs.filter((shelf) => !shelf.books.find((book) => book.id === this.props.book.id))
-                                .map((shelf) => <option key={shelf.id}>{ shelf.name }</option>)
-                            }
-                            </select>
-                            <button><MdAddCircleOutline /></button>
-                        </form>
                      </div>
                     : <div className="book-view"></div>
         );

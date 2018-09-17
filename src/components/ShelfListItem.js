@@ -6,7 +6,7 @@ class ShelfListItem extends React.Component {
     };
     render () {
         return (
-            <li>
+            <li className="shelf-list-item">
                 <button onClick={this.onClick}>
                     {this.props.name}
                 </button>

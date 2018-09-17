@@ -68,7 +68,6 @@ export const startGetBook = (id) => {
             if(book.title.includes('CDATA')){
                 book.title = book.title.substring(9, book.title.length - 3);
             };
-            console.log(book);
             dispatch(getBook(book));
         } catch (e) {
             console.log('-----Error In startGetBook', e);

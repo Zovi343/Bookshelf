@@ -1,4 +1,114 @@
 .book-view {
     background-color: #fff5e6;
+    overflow-y: scroll; 
+    padding: 2rem;
+
     flex: 0 1 60%;
+
+    @include scrollbar;
+
+    .book-image {
+        width: 18rem;
+        height: 22rem;
+        font-weight: 600;
+        float: left;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+        &__item:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.4rem;
+        }
+
+        .top-rating{
+            color: #01b406;
+        }
+        .good-rating{
+            color:#7d9c21;
+        }
+        .average-rating{
+            color: #fc8303;
+        }
+        .bad-rating{
+            color: red;
+        }
+    }
+
+    .book-description {
+
+        .author-name {
+            font-weight: 600;
+        }
+
+        .title-select-part {
+            margin-bottom: 2rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .title-author {
+                width: 39rem;
+            }
+
+            label {
+                color: $brown-dark-1;
+                display: inline-block;
+                font-family: 'Pacifico';
+                font-size: 2rem;
+                margin-right: 1rem;
+            }
+
+            select {
+                background-color: $brown-light-1;
+                border-radius: 100px;
+                border: none;
+                color: $white;
+                font-size: inherit;
+                font-family: inherit;
+                height: 2.5rem;
+                outline: none;
+                padding: 0.3rem;
+                cursor: pointer;
+                width: 13rem;
+            }
+
+            .add-to-shelf {
+                background: none;
+                border: none;
+                color: $brown-light-1;
+                margin: 0 0 0 1rem;
+                outline: none;
+
+                &__icon {
+                    font-size: 2.9rem;
+                    margin-bottom: -0.8rem;
+                }
+
+                &:hover {
+                    color: $brown-light-2;
+                }
+            
+                &:active {
+                    transform: scale(0.95) translateY(3px);
+                }
+
+                &:focus {
+                    color: $brown-light-2;
+                }
+
+                &:disabled {
+                    color: $grey-dark-2;
+                    transform: translateY(0);
+                }
+            }
+        }
+    }
 }

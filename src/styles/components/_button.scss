@@ -22,4 +22,8 @@
     &:active {
         transform: scale(0.95) translateY(3px);
     }
+
+    &:focus{
+        background-color: $brown-light-2; 
+    }
 }

@@ -1,4 +1,59 @@
 .shelf-list {
+    background-color: $white-off;
+    overflow-y: scroll;
+
     flex: 0 1 20%;
-    background-color: orangered;
+
+    @include scrollbar;
+
+    .box-h {
+        background-color: $white; 
+        border-bottom: solid 1.5px $grey-light-4;
+        height: 6rem;
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+            color: $brown-dark-1;
+            font-family: 'Pacifico';
+            font-weight: 600;
+            font-size: 2.3rem;
+        }
+    }
+
+    .shelf-list-item {
+        button {
+            border: none;
+            border-bottom: solid 1px $grey-light-4;
+            background-color: $white;
+            display: block;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 1.8rem;
+            height: 6rem;
+            padding: 1rem 1rem;
+            outline: none;
+            transition: all .3s;
+            width: 100%;
+    
+            display: flex;
+            align-items: center;
+    
+            .result-author {
+                flex: 1;
+                margin-left: 1rem;
+            }
+    
+            &:hover {
+                background-color: $white-off;
+            }
+    
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+    }
 }
