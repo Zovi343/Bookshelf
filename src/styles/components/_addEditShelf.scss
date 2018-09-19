@@ -1,0 +1,31 @@
+.add-edit-shelf {
+    background-color: #fff5e6;
+    overflow-y: scroll; 
+    padding: 2rem;
+
+    flex: 0 1 60%;
+
+    @include scrollbar;
+}
+
+.shelf-form {
+    input[type="text"] {
+        border: solid 1.5px $brown-light-2;
+        border-radius: 100px;
+        display: block;
+        font-family: inherit;
+        font-size: inherit;
+        margin-bottom: 1.5rem;
+        outline: none;
+        padding: 0.7rem;
+        width: 40%;
+    }
+    input[type="submit"] {
+        margin-right: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &__last-group {
+        display: flex;
+    }
+}

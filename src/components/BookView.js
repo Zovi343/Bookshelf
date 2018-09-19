@@ -82,6 +82,7 @@ export class BookView extends React.Component {
                                 </form>
                             </div>
                             <p dangerouslySetInnerHTML={ this.descriptionText() }></p>
+                            <p className="link">Find out more on Goodreads:&nbsp;<a href={this.props.book.link}> {this.props.book.link}</a></p>
                         </div>
 
                      </div>

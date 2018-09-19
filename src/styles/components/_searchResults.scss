@@ -1,5 +1,5 @@
 .search-results {
-    background-color: $white-off;
+    background-color: $brown-lightest-3;
     overflow-y: scroll;
 
     flex: 0 1 20%;  
@@ -11,8 +11,8 @@
 
     button {
         border: none;
-        border-bottom: solid 1px $grey-light-4;
-        background-color: $white;
+        border-bottom: solid 1px $grey-dark-3;
+        background-color: $brown-lightest-1;
         display: block;
         font-family: inherit;
         font-weight: 600;
@@ -30,7 +30,7 @@
         }
 
         &:hover {
-            background-color: $white-off;
+            background-color: $brown-lightest-2;
         }
 
         &:active {

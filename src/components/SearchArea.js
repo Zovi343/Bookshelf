@@ -32,7 +32,7 @@ export class SearchArea extends React.Component {
     render () {
         return (
             <div className="search-area">
-                <div className="div-to-center-search-area"></div>
+                <div className="div-to-center">&nbsp;</div>
                 <div className="search-area__search-field">
                     <button className="btn" onClick={this.random}>Random Books</button>
                     <form className="search-form" onSubmit={this.onSubmit}>

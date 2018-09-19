@@ -55,6 +55,8 @@ export const startGetBook = (id) => {
             const parser =  new DOMParser();
             const xmlDoc = parser.parseFromString(response.data, "text/xml");
 
+            console.log('Book-Info:', xmlDoc);
+
             const book = {
                 id: xmlDoc.getElementsByTagName("id")[0].innerHTML,
                 author: xmlDoc.getElementsByTagName("name")[0].innerHTML,
@@ -62,12 +64,17 @@ export const startGetBook = (id) => {
                 rating: xmlDoc.getElementsByTagName("average_rating")[0].innerHTML,
                 image_url: xmlDoc.getElementsByTagName("image_url")[0].innerHTML,
                 description: xmlDoc.getElementsByTagName("description")[0].innerHTML,
-                publication_year: xmlDoc.getElementsByTagName("publication_year")[0].innerHTML
+                publication_year: xmlDoc.getElementsByTagName("publication_year")[0].innerHTML,
+                link: xmlDoc.getElementsByTagName("link")[0].innerHTML
             };
+
+            // Removing CDATA
             book.description = book.description.substring(9, book.description.length - 3);
+            book.link = book.link.substring(9, book.link.length - 3);
             if(book.title.includes('CDATA')){
                 book.title = book.title.substring(9, book.title.length - 3);
             };
+
             dispatch(getBook(book));
         } catch (e) {
             console.log('-----Error In startGetBook', e);

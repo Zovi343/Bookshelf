@@ -13,7 +13,11 @@ export class CreateShelf extends React.Component {
     }
     onSubmit = (e) => {
         e.preventDefault();
-        if(!!this.props.takenNames.find((name) => name.toLowerCase() === this.state.name.toLowerCase())) {
+        if (!this.state.name) {
+            this.setState(() => ({
+                error: 'You need to provide name for your shelf.'
+            }));
+        } else if(!!this.props.takenNames.find((name) => name.toLowerCase() === this.state.name.toLowerCase())) {
             this.setState(() => ({
                 error: 'This name is already in use!'
             }));
@@ -30,11 +34,13 @@ export class CreateShelf extends React.Component {
     render () {
         return (
             <div>
-                <form onSubmit={this.onSubmit}>
+                <form className="shelf-form" onSubmit={this.onSubmit}>
                     <input onChange={this.onChange} type="text" placeholder="Name of the shelf" value={this.state.name}/>
-                    <input type="submit" value="Save Shelf!"/>
+                    <div className="shelf-form__last-group">
+                        <input className="btn" type="submit" value="Save Shelf!"/>
+                        { !!this.state.error && <p>{ this.state.error }</p> }
+                    </div>
                 </form>
-                { !!this.state.error && <p>{ this.state.error }</p> }
             </div>
         );
     };

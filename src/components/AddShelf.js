@@ -10,7 +10,7 @@ export class AddShelf extends React.Component {
     }
     render () {
         return (
-            <div>
+            <div className="add-edit-shelf">
                 <ShelfForm newShelf={this.newShelf} takenNames={this.props.shelfsNames} />
             </div>
         );

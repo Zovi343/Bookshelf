@@ -1,5 +1,5 @@
 .shelf-list {
-    background-color: $white-off;
+    background-color: $brown-lightest-3;
     overflow-y: scroll;
 
     flex: 0 1 20%;
@@ -17,9 +17,8 @@
         align-items: center;
 
         h3 {
-            color: $brown-dark-1;
             font-family: 'Pacifico';
-            font-weight: 600;
+            font-weight: 400;
             font-size: 2.3rem;
         }
     }
@@ -27,8 +26,8 @@
     .shelf-list-item {
         button {
             border: none;
-            border-bottom: solid 1px $grey-light-4;
-            background-color: $white;
+            border-bottom: solid 1px $grey-dark-3;
+            background-color: $brown-lightest-1;
             display: block;
             font-family: inherit;
             font-weight: 600;
@@ -48,7 +47,7 @@
             }
     
             &:hover {
-                background-color: $white-off;
+                background-color: $brown-lightest-2;
             }
     
             &:active {

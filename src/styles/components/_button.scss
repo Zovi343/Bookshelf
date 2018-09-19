@@ -3,6 +3,7 @@
     border-radius: 50px;
     border: none;
     color: #fff;
+    cursor: pointer;
     font-weight: 600;
     font-size: 1.35rem;
     font-family: inherit;
@@ -25,5 +26,25 @@
 
     &:focus{
         background-color: $brown-light-2; 
+    }
+}
+
+.btn--white {
+    background-color: $white;
+    color: $brown-light-1;
+    border: solid 2px $brown-light-1;
+
+    &:hover {
+        background-color: $brown-light-1;
+        color: $white;
+    }
+
+    &:active {
+        transform: scale(0.95) translateY(3px);
+    }
+
+    &:focus{
+        background-color: $brown-light-1; 
+        color: $white;
     }
 }
