@@ -6,23 +6,38 @@
     flex: 0 1 60%;
 
     @include scrollbar;
+
+    h2 {
+        margin-bottom: 2rem;
+        display: inline-block;
+    }
+
+    h2:after {
+        display: block;
+        height: 1px;
+        background-color: $grey-dark-3;
+        content: "";
+        width: 140%;
+        margin: 0 auto;
+        margin-top: 3px;
+    }
 }
 
 .shelf-form {
     input[type="text"] {
         border: solid 1.5px $brown-light-2;
-        border-radius: 100px;
+        border-radius: 10px;
         display: block;
         font-family: inherit;
         font-size: inherit;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
         outline: none;
-        padding: 0.7rem;
-        width: 40%;
+        padding: 0.5rem;
+        width: 30%;
     }
     input[type="submit"] {
         margin-right: 2rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     &__last-group {

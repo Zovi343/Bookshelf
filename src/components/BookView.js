@@ -23,13 +23,15 @@ export class BookView extends React.Component {
             const savedBook = {
                 id: this.props.book.id, 
                 title: this.props.book.title, 
-                author: this.props.book.author
+                author: this.props.book.author,
+                publication_year: this.props.book.publication_year
             };
+            console.log(typeof(savedBook.publication_year));
             this.props.startAddBook(id, savedBook);
-            return "false";
-        } else {
-            return "true";
-        }
+            this.setState(() => ({
+                currentShelf: 'Select Shelf'
+            }));
+        };
     };
     descriptionText = () => {
         return { __html:`${this.props.book.description}`};

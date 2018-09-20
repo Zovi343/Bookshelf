@@ -64,9 +64,9 @@ export const startEditShelf = (id, name) => {
 
 export const startAddBook = (id, book) => {
     return async (dispatch, getState) => {
-
+        
         const uid = getState().auth.uid;
-        database.ref(`users/${uid}/shelfs/${id}/books/${book.id}`).set({ title: book.title, author: book.author}).then(() => {
+        database.ref(`users/${uid}/shelfs/${id}/books/${book.id}`).set({ title: book.title, author: book.author, publication_year: book.publication_year}).then(() => {
             dispatch(addBook(id, book));
         }).catch((e) => console.log('Error In startAddBook', e));
     };

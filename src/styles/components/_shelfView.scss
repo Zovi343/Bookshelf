@@ -1,0 +1,124 @@
+.shelf-view {
+    background-color: #fff5e6;
+    overflow-y: scroll; 
+    padding: 2rem;
+
+    flex: 0 1 60%;
+
+    @include scrollbar;
+
+    ul {
+        margin-top: 3rem;
+        list-style: none;
+    }
+}
+
+.heading-settings {
+
+    display: flex;
+    justify-content: space-between;
+
+    h2:after {
+        display: block;
+        height: 0.5px;
+        background-color: $grey-dark-3;
+        content: "";
+        width: 140%;
+        margin: 0 auto;
+        margin-top: 3px;
+    }
+}
+
+.search-within {
+    input {
+        border: solid 1.2px $brown-light-2;
+        border-radius: 10px;
+        display: block;
+        font-family: inherit;
+        font-size: inherit;
+        margin-top: 1.5rem;
+        outline: none;
+        padding: 0.5rem;
+        width: 30%;
+    }
+
+}
+
+.shelf-view-item {
+    border-bottom: solid 1px $grey-dark-3;
+    padding: 0 2rem;
+    padding-bottom: 1rem; 
+    margin-bottom: 1rem;
+    transition: all .3s;
+
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+        border: none;
+        background: none;
+        font-size: 1.8rem;
+        font-family: inherit;
+        outline: none;
+        width: 97%;
+
+        display: flex;
+        justify-content: space-between;
+
+        p:first-child {
+            width: 44%;
+            text-align: left;
+            margin-right: 3%;
+        }
+
+        p:nth-child(2) {
+            width: 30%;
+            text-align: left;
+        }
+        p:nth-child(3) {
+            width: 30%;
+            text-align: left;
+        }
+
+    }
+
+    &__delete {
+        border: none;
+        background: none;
+        font-size: 2.2rem;
+        outline: none;
+        width: 3%;
+        transition: all .3s;
+
+        display: flex;
+        align-items: flex-end;
+
+        &:hover {
+            color: #F44336;
+        }
+
+        &:active {
+            transform: scale(0.95) translateY(2px)
+        }
+    }
+
+    &:hover {
+        border-bottom: solid 1.5px $grey-dark-1;
+        padding-bottom: 0.85rem;
+    }
+}
+
+.first {
+    padding-bottom: 0;
+
+    &__title {
+        font-weight: 600;
+    }
+
+    &:hover {
+        border-bottom: solid 1px $grey-dark-3;
+        padding-bottom: 0;
+    }
+}

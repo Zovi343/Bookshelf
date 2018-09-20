@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { MdSettings } from "react-icons/md";
+import { MdSettings, MdHighlightOff } from "react-icons/md";
 
 import ShelfViewItem from './ShelfViewItem';
 import {  startGetBook } from '../actions/searchBookActions';
@@ -28,17 +28,26 @@ export class ShelfView extends React.Component {
     };
     render () {
         return (
-            <div>
+            <div className="shelf-view">
                 {
                     !!this.props.currentShelf
                         ?(
                             <div>
-                                <h2>Current Shelf: {this.props.currentShelf.name}</h2>
-                                <form>
+                                <div className="heading-settings">
+                                    <h2>Current Shelf: {this.props.currentShelf.name}</h2>
+                                    <button className="settings" onClick={this.editShelf}><MdSettings className="settings__icon"/></button>
+                                </div>
+                                <form  className="search-within">
                                     <input onChange={this.onSearchChange} type="text" placeholder="Search within shelf" value={this.state.search}/>
                                 </form>
-                                <button onClick={this.editShelf}><MdSettings /></button>
                                 <ul>
+                                    <li className="shelf-view-item first">
+                                        <div className="shelf-view-item__title first__title" onClick={this.onClickTitle}>
+                                            <p>Title</p>
+                                            <p>Author</p>
+                                            <p>Publication Year</p>
+                                        </div>
+                                    </li>
                                     {
                                         !!this.state.search
                                             ? this.props.currentShelf.books.map((book) => {

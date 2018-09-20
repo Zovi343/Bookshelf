@@ -55,8 +55,6 @@ export const startGetBook = (id) => {
             const parser =  new DOMParser();
             const xmlDoc = parser.parseFromString(response.data, "text/xml");
 
-            console.log('Book-Info:', xmlDoc);
-
             const book = {
                 id: xmlDoc.getElementsByTagName("id")[0].innerHTML,
                 author: xmlDoc.getElementsByTagName("name")[0].innerHTML,

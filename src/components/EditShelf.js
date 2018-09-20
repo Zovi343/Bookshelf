@@ -16,6 +16,7 @@ export class EditShelf extends React.Component {
     render () {
         return (
             <div className="add-edit-shelf">
+                <h2>Editing:{this.props.currentShelf.name}</h2>
                 <ShelfForm shelfName={this.props.currentShelf.name} newShelf={this.submitEdit} takenNames={this.props.shelfsNames} />
                 <button className="btn btn--white" onClick={this.clickDelete}>Delete</button>
             </div>

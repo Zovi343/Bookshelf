@@ -48,3 +48,22 @@
         color: $white;
     }
 }
+
+.settings {
+    border: none;
+    background: none;
+    color: $brown-light-2;
+    font-size: 2.7rem;
+    transition: all 0.3s;
+    outline: none; 
+
+    display: flex;
+
+    &:hover {
+        transform: rotate(40deg);
+    }
+
+    &:active &__icon {
+        transform: scale(0.95) translateY(3px);
+    }
+}

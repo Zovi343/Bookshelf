@@ -10,11 +10,13 @@ export class ShelfViewItem extends React.Component {
     };
     render () {
         return (
-            <li>
-                <button onClick={this.onClickTitle}>
-                    <p>{this.props.title} by {this.props.author}</p>
+            <li className="shelf-view-item">
+                <button className="shelf-view-item__title" onClick={this.onClickTitle}>
+                    <p>{this.props.title}</p>
+                    <p>{this.props.author}</p>
+                    <p>{this.props.publication_year}</p>
                 </button>
-                <button onClick={this.onClickDelete}><MdHighlightOff /></button>
+                <button className="shelf-view-item__delete" onClick={this.onClickDelete}><MdHighlightOff /></button>
             </li>
         );
     };
