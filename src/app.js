@@ -9,14 +9,7 @@ import AppRouter, { history } from './routes/appRouter';
 import { startSetShelfs } from './actions/shelfActions';
 import { login, logout } from './actions/authActions';
 
-// TESTING
-import { startSearch, startGetBook } from './actions/searchBookActions';
-
 const store = configureStore();
-
-//TESTING
-store.dispatch(startSearch('metro'));
-store.dispatch(startGetBook('17274667'));
 
 const jsx = (
     <Provider store={store}>

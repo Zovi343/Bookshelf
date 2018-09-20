@@ -57,9 +57,11 @@ export class BookView extends React.Component {
     render () {
         return (
             (!!this.props.bookId && !this.props.book.id) || (this.props.bookId !== this.props.book.id && !!this.props.book.id)
-                ? <div className="book-view"> <h3> Loading ... </h3> </div>
+                ? <div className="loader"> 
+                    <img className="loader__image" src="/images/loader.gif" />
+                  </div>
                 : this.props.book.id
-                    ? <div className="book-view">
+                    ? ( <div className="book-view">
                         <div className="book-image">
                             <img className="book-image__item image" src={this.props.book.image_url} alt="Book-Cover"/>
                             <p className="book-image__item" >Rating: <span className={this.ratingColor()}> { this.props.book.rating} </span></p>
@@ -87,8 +89,8 @@ export class BookView extends React.Component {
                             <p className="link">Find out more on Goodreads:&nbsp;<a href={this.props.book.link}> {this.props.book.link}</a></p>
                         </div>
 
-                     </div>
-                    : <div className="book-view"></div>
+                     </div> )
+                    : ( <div className="book-view"></div> )
         );
     };
 };
