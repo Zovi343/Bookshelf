@@ -6,7 +6,7 @@ export const startSearch = (searchValue) => {
             dispatch(setSearchValue(searchValue));
     
             const key ='x0DZfeuqgRLfSZkXTwBv5Q';
-            const proxy = 'https://cors-anywhere.herokuapp.com/';
+            const proxy = 'https://salty-harbor-87101.herokuapp.com/';
             const encodedSearchValue = encodeURIComponent(searchValue);
     
             const response = await axios(`${proxy}https://www.goodreads.com/search.xml?key=${key}&q=${encodedSearchValue}`);
@@ -48,7 +48,7 @@ export const startGetBook = (id) => {
             dispatch(getBookId(id));
 
             const key ='x0DZfeuqgRLfSZkXTwBv5Q';
-            const proxy = 'https://cors-anywhere.herokuapp.com/';
+            const proxy = 'https://salty-harbor-87101.herokuapp.com/';
 
             const response = await  axios(`${proxy}https://www.goodreads.com/book/show/${id}.xml?key=${key}`);
 
