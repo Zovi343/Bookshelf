@@ -57,7 +57,7 @@ export class BookView extends React.Component {
     render () {
         return (
             (!!this.props.bookId && !this.props.book.id) || (this.props.bookId !== this.props.book.id && !!this.props.book.id)
-                ? <div className="loader"> 
+                ? <div className="book-view loader"> 
                     <img className="loader__image" src="/images/loader.gif" />
                   </div>
                 : this.props.book.id

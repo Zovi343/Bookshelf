@@ -1,0 +1,34 @@
+.box-layout {
+    align-items: center;
+    background:  linear-gradient(rgba(0, 0, 0, 0.3), 
+               rgba(0, 0, 0, 0.3)),url('/images/books.jpg');
+    background-size: cover;
+    display: flex;
+    height: 100vh;
+    justify-content: center;    
+    width: 100vw;
+
+    .btn {
+        padding: 1rem;
+        font-weight: 400;
+        font-size: 1.7rem;
+    }
+}
+
+.box-layout__box {
+    background: fade-out($yellow-off, .1);
+    border-radius: 3px;
+    padding: 3.2rem 1.6rem;
+    text-align: center;
+    width: 27rem;
+}
+
+.box-layout__title {
+    margin: 0 0 2rem 0;
+    line-height: 1;
+}
+
+.box-layout__text {
+    margin: 0 0 2rem 0;
+    line-height: 1;
+}

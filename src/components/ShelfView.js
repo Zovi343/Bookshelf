@@ -45,7 +45,7 @@ export class ShelfView extends React.Component {
                                         <div className="shelf-view-item__title first__title" onClick={this.onClickTitle}>
                                             <p>Title</p>
                                             <p>Author</p>
-                                            <p>Publication Year</p>
+                                            <p>Published In</p>
                                         </div>
                                     </li>
                                     {

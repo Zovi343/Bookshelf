@@ -35,7 +35,7 @@ export class CreateShelf extends React.Component {
         return (
             <div>
                 <form className="shelf-form" onSubmit={this.onSubmit}>
-                    <input onChange={this.onChange} type="text" placeholder="Name of the shelf" value={this.state.name}/>
+                    <input name="name" onChange={this.onChange} type="text" placeholder="Name of the shelf" value={this.state.name}/>
                     <div className="shelf-form__last-group">
                         <input className="btn" type="submit" value="Save Shelf!"/>
                         { !!this.state.error && <p>{ this.state.error }</p> }
