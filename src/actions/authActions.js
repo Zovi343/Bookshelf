@@ -1,5 +1,5 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase';
-import { unsetSearchResult, unsetBookId, unsetBook } from './searchBookActions';
+import { unsetSearchResult, unsetBookId, unsetBook, unsetSearchValue, unsetSearchValueBefore } from './searchBookActions';
 
 
 export const startLogin = () => {
@@ -14,6 +14,8 @@ export const startLogout = () => {
             dispatch(unsetSearchResult());
             dispatch(unsetBookId());
             dispatch(unsetBook());
+            dispatch(unsetSearchValue());
+            dispatch(unsetSearchValueBefore());
         });
     };
 };

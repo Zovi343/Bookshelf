@@ -91,6 +91,14 @@ export const setSearchValueBefore = (value) => ({
     value
 });
 
+export const unsetSearchValue = () => ({
+    type: 'UNSET_SEARCH_VALUE',
+});
+
+export const unsetSearchValueBefore = () => ({
+    type: 'UNSET_SEARCH_VALUE_BEFORE'
+});
+
 export const setSearchResult = (results) => ({
     type: 'SET_SEARCH_RESULT',
     results

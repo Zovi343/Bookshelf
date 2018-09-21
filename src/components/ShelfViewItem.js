@@ -3,7 +3,7 @@ import { MdHighlightOff } from "react-icons/md";
 
 export class ShelfViewItem extends React.Component {
     onClickDelete = () => {
-        this.props.deleteBook(this.props.id);
+        this.props.deleteBook(this.props.time);
     };
     onClickTitle = () => {
         this.props.getBookClick(this.props.id);

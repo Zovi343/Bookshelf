@@ -21,12 +21,13 @@ export class BookView extends React.Component {
         if (this.state.currentShelf !== 'Select Shelf'){
             let id = this.props.shelfs.find((shelf) => shelf.name === this.state.currentShelf).id;
             const savedBook = {
+                time: Date.now().toString(),
                 id: this.props.book.id, 
                 title: this.props.book.title, 
                 author: this.props.book.author,
                 publication_year: this.props.book.publication_year
             };
-            console.log(typeof(savedBook.publication_year));
+            
             this.props.startAddBook(id, savedBook);
             this.setState(() => ({
                 currentShelf: 'Select Shelf'

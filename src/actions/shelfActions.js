@@ -16,7 +16,7 @@ export const startSetShelfs = () => {
                     });
                     booksKeys.forEach((bookKey) => {
                         let newBook = newShelf.books[bookKey]; // there is no "s" at the end here !!!
-                        newBook.id = bookKey;
+                        newBook.time = bookKey;
                         newBooks.push(newBook);
                     });
                     newShelf.books = newBooks;
@@ -66,18 +66,18 @@ export const startAddBook = (id, book) => {
     return async (dispatch, getState) => {
         
         const uid = getState().auth.uid;
-        database.ref(`users/${uid}/shelfs/${id}/books/${book.id}`).set({ title: book.title, author: book.author, publication_year: book.publication_year}).then(() => {
+        database.ref(`users/${uid}/shelfs/${id}/books/${book.time}`).set({ title: book.title, author: book.author, publication_year: book.publication_year, id: book.id}).then(() => {
             dispatch(addBook(id, book));
         }).catch((e) => console.log('Error In startAddBook', e));
     };
 };
 
-export const startRemoveBook = (shelfId, bookId) => {
+export const startRemoveBook = (shelfId, bookTime) => {
     return async (dispatch, getState) => {
 
         const uid = getState().auth.uid;
-        database.ref(`users/${uid}/shelfs/${shelfId}/books/${bookId}`).remove().then(() => {
-            dispatch(removeBook(shelfId, bookId));
+        database.ref(`users/${uid}/shelfs/${shelfId}/books/${bookTime}`).remove().then(() => {
+            dispatch(removeBook(shelfId, bookTime));
         }).catch((e) => console.log('Error In startRemoveBook', e));
     };
 };
@@ -109,8 +109,8 @@ export const addBook = (id, book) => ({
     book
 });
 
-export const removeBook = (shelfId, bookId) => ({
+export const removeBook = (shelfId, bookTime) => ({
     type: 'REMOVE_BOOK',
     shelfId,
-    bookId
+    bookTime
 });

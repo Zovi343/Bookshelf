@@ -10,8 +10,8 @@ export class ShelfView extends React.Component {
     state = {
         search: ''
     }
-    deleteBook = (bookId) => {
-        this.props.startRemoveBook(this.props.currentShelf.id, bookId);
+    deleteBook = (bookTime) => {
+        this.props.startRemoveBook(this.props.currentShelf.id, bookTime);
     };
     getBookClick = (id) => {
         this.props.startGetBook(id);
@@ -66,7 +66,7 @@ export class ShelfView extends React.Component {
                                                                                                 getBookClick={this.getBookClick} 
                                                                                                 key={book.id} 
                                                                                                 {...book}
-                                                                                            />)
+                                                                                            />).reverse()
                                     }
                                 </ul>
                             </div>

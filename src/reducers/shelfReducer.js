@@ -40,7 +40,7 @@ export default (state = defaultState, action) => {
                 let newObj = Object.assign({}, state[i]);
                 newArr.push(newObj);
             };
-            newArr[index].books = newArr[index].books.filter((book) => book.id !== action.bookId);
+            newArr[index].books = newArr[index].books.filter((book) => book.time !== action.bookTime);
             return newArr;
         };
         default:
