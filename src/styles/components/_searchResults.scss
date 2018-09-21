@@ -53,3 +53,28 @@
     color: $white;
     background-color: fade-out($red, .15);
 }
+
+.no-results {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__item {
+        font-weight: 600;
+    }
+}
+
+.message {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    &__item {
+        color: #666;
+        font-weight: 400;
+    }
+}
