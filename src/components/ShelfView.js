@@ -51,7 +51,7 @@ export class ShelfView extends React.Component {
                                     {
                                         !!this.state.search
                                             ? this.props.currentShelf.books.map((book) => {
-                                                if (`${book.title} ${book.author}`.includes(this.state.search)){
+                                                if (`${book.title.toLowerCase()} ${book.author.toLowerCase()}`.includes(this.state.search.toLowerCase())){
                                                     return ( <ShelfViewItem 
                                                             deleteBook={this.deleteBook}
                                                             getBookClick={this.getBookClick} 

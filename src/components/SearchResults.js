@@ -15,11 +15,11 @@ export class SearchResults extends React.Component {
             <div className="search-results"> 
                 {
                     !!this.props.apiErrText
-                        ? <p>{this.props.apiErrText}</p>
+                        ? <p  className="api-error">{this.props.apiErrText}</p>
                         : this.props.searchValue !== this.props.searchValueBefore
                             ? <div className="loader"> 
                                 <img className="loader__image" src="/images/loader.gif" />
-                              </div>
+                                </div>
                             :<ol>
                                 {
                                     this.props.searchResults.map((book) => <SearchResultItem getBookClick={this.getBookClick} key={book.id} book={book} /> )

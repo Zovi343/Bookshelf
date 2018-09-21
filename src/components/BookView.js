@@ -74,15 +74,17 @@ export class BookView extends React.Component {
                                     <p className="author-name">by { this.props.book.author}</p>
                                 </div>
                                 <form onSubmit={this.onSubmit}>
-                                    <label htmlFor="shelfs"> Add to shelf:</label>
-                                        <select onChange={this.onChange} name="shelfs" id="shelfs">
-                                        <option>Select Shelf</option>
-                                        { 
-                                            this.props.shelfs.filter((shelf) => !shelf.books.find((book) => book.id === this.props.book.id))
-                                            .map((shelf) => <option key={shelf.id}>{ shelf.name }</option>)
-                                        }
-                                        </select>
-                                    <button className="add-to-shelf" disabled={this.addAllowed()}><MdAddCircle className="add-to-shelf__icon" /></button>
+                                        <label htmlFor="shelfs"> Add to shelf:</label>
+                                        <div>
+                                            <select onChange={this.onChange} name="shelfs" id="shelfs">
+                                            <option>Select Shelf</option>
+                                            { 
+                                                this.props.shelfs.filter((shelf) => !shelf.books.find((book) => book.id === this.props.book.id))
+                                                .map((shelf) => <option key={shelf.id}>{ shelf.name }</option>)
+                                            }
+                                            </select>
+                                            <button className="add-to-shelf" disabled={this.addAllowed()}><MdAddCircle className="add-to-shelf__icon" /></button>
+                                        </div>
                                 </form>
                             </div>
                             <p dangerouslySetInnerHTML={ this.descriptionText() }></p>

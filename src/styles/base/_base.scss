@@ -6,6 +6,14 @@
 
 html {
     font-size: 62.5%;
+
+    @media only screen and (max-width: $bp-large) {
+        font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+    }
+
+    @media only screen and (max-width: $bp-medium-3) {
+        font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
 }
 
 body {

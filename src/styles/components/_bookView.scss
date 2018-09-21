@@ -5,11 +5,18 @@
 
     flex: 0 1 60%;
 
+    @media only screen and (max-width: $bp-medium) {
+        flex: 0 1 58%;
+    }
+
+    @media only screen and (max-width: $bp-medium-2) {
+        flex: 0 1 56%;
+    }
+
     @include scrollbar;
 
     .book-image {
-        width: 18rem;
-        height: 22rem;
+        padding: 0rem 3.5rem;
         font-weight: 600;
         float: left;
 
@@ -21,6 +28,11 @@
 
         &__item:not(:last-child) {
             margin-bottom: 0.5rem;
+
+            @media only screen and (max-width: $bp-large) {
+                margin-bottom: 0rem;
+            }
+
         }
 
         p {
@@ -55,57 +67,76 @@
             justify-content: space-between;
 
             .title-author {
-                width: 39rem;
+                flex: 1;
+                margin-right: 2rem;
             }
 
-            label {
-                display: inline-block;
-                font-family: 'Pacifico';
-                font-size: 2rem;
-                margin-right: 1rem;
-            }
+            form {
 
-            select {
-                background-color: $brown-light-1;
-                border-radius: 100px;
-                border: none;
-                color: $white;
-                font-size: inherit;
-                font-family: inherit;
-                height: 2.5rem;
-                outline: none;
-                padding: 0.3rem;
-                cursor: pointer;
-                width: 13rem;
-            }
+                display: flex;
+                align-items: baseline;
 
-            .add-to-shelf {
-                background: none;
-                border: none;
-                color: $brown-light-1;
-                margin: 0 0 0 1rem;
-                outline: none;
-
-                &__icon {
-                    font-size: 2.9rem;
-                    margin-bottom: -0.8rem;
+                @media only screen and (max-width: $bp-largest) {
+                    flex-direction: column;
                 }
 
-                &:hover {
-                    color: $brown-light-2;
-                }
-            
-                &:active {
-                    transform: scale(0.95) translateY(3px);
-                }
+                label {
+                    display: inline-block;
+                    font-family: 'Pacifico';
+                    font-size: 2rem;
+                    margin-right: 1rem;
 
-                &:focus {
-                    color: $brown-light-2;
+                    @media only screen and (max-width: $bp-largest) {
+                        margin-bottom: 0.5rem;
+                    }
                 }
+    
+                select {
+                    background-color: $brown-light-1;
+                    border-radius: 100px;
+                    border: none;
+                    color: $white;
+                    font-size: inherit;
+                    font-family: inherit;
+                    height: 2.5rem;
+                    outline: none;
+                    padding: 0.3rem;
+                    cursor: pointer;
+                    width: 11rem;
 
-                &:disabled {
-                    color: $grey-dark-2;
-                    transform: translateY(0);
+                    @media only screen and (max-width: $bp-large) {
+                        width: 12rem;
+                    }
+                }
+    
+                .add-to-shelf {
+                    background: none;
+                    border: none;
+                    color: $brown-light-1;
+                    margin: 0 0 0 1rem;
+                    outline: none;
+    
+                    &__icon {
+                        font-size: 2.9rem;
+                        margin-bottom: -0.8rem;
+                    }
+    
+                    &:hover {
+                        color: $brown-light-2;
+                    }
+                
+                    &:active {
+                        transform: scale(0.95) translateY(3px);
+                    }
+    
+                    &:focus {
+                        color: $brown-light-2;
+                    }
+    
+                    &:disabled {
+                        color: $grey-dark-2;
+                        transform: translateY(0);
+                    }
                 }
             }
         }

@@ -14,13 +14,16 @@ export const PrivateRoute = ({
 }) => (
     <Route {...rest} component={(props) => (
         isAuth ? (
-            <div className="main">
-                <Header />
-                <SearchArea />
-                <div className="content">
-                    <SearchResults {...props}/>
-                    <Component {...props}/>
-                    <ShelfList {...props}/>
+            <div className="width-error">
+                <h2 className="width-error__item">We are sorry, but this webpage is not available on your screen width.</h2>
+                <div className="main">
+                    <Header />
+                    <SearchArea />
+                    <div className="content">
+                        <SearchResults {...props}/>
+                        <Component {...props}/>
+                        <ShelfList {...props}/>
+                    </div>
                 </div>
             </div>
         ) : (

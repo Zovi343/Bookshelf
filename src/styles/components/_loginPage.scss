@@ -12,6 +12,10 @@
         padding: 1rem;
         font-weight: 400;
         font-size: 1.7rem;
+
+        @media only screen and (max-width: $bp-small) {
+            display: none;
+        }
     }
 }
 
@@ -31,4 +35,20 @@
 .box-layout__text {
     margin: 0 0 2rem 0;
     line-height: 1;
+
+    @media only screen and (max-width: $bp-small) {
+        display: none;
+    }
+
+}
+
+.box-layout__text-2 {
+    margin: 0 0 2rem 0;
+    line-height: 1;
+    display: none;
+
+    @media only screen and (max-width: $bp-small) {
+        display: inline;
+    }
+
 }

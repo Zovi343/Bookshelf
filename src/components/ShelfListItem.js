@@ -8,7 +8,7 @@ class ShelfListItem extends React.Component {
         return (
             <li className="shelf-list-item">
                 <button onClick={this.onClick}>
-                    {this.props.name}
+                    <p>{this.props.name}</p>
                 </button>
             </li>
         );

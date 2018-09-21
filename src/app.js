@@ -8,6 +8,8 @@ import { firebase } from './firebase/firebase';
 import AppRouter, { history } from './routes/appRouter';
 import { startSetShelfs } from './actions/shelfActions';
 import { login, logout } from './actions/authActions';
+import LoadingPage from './components/LoadingPage';
+
 
 const store = configureStore();
 
@@ -17,9 +19,7 @@ const jsx = (
     </Provider>
 );
 
-//ReactDOM.render(<h1>Loading ...</h1>, document.getElementById('app'));
-
-
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 let hasRendered = false;
 const renderApp = () => {

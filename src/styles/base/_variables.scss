@@ -5,6 +5,8 @@ $brown-dark-1: #3e2723;
 $brown-light-1: #a4623a;
 $brown-light-2: #8b5331;
 
+$red: #F44336;
+
 $brown-lightest-1: #f6ece6;
 $brown-lightest-2: #f2e3da;
 $brown-lightest-3: #edd9cd;
@@ -24,5 +26,11 @@ $grey-dark-1: #333;
 $grey-dark-2: #777;
 $grey-dark-3: #999;
 
+// MEDIA QUERIES
 
-// nice yellow #ffcc80
+$bp-largest: 87.5em; // 1400 px
+$bp-large: 81.25em; // 1300 px
+$bp-medium: 78.125em; // 1250 px
+$bp-medium-2: 71.875em; // 1150 px
+$bp-medium-3: 68.75em; // 1100 px
+$bp-small: 62.5em; // 1000 px
