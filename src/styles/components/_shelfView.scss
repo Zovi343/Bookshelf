@@ -48,6 +48,11 @@
         outline: none;
         padding: 0.5rem;
         width: 30%;
+
+        &::-webkit-input-placeholder {
+            font-weight: 300;
+            color: var( $grey-light-4)
+        }
     }
 
 }
