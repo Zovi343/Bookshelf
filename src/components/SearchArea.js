@@ -37,7 +37,7 @@ export class SearchArea extends React.Component {
                     <button className="btn" onClick={this.random}>Random Books</button>
                     <form className="search-form" onSubmit={this.onSubmit}>
                         <input onChange={this.onSearchChange} type="text" placeholder="Search Book By Name or Author" value={this.state.search} />
-                        <button disabled={ !!this.state.search ? false : true }><MdSearch /></button>
+                        <button disabled={ !!this.state.search ? false : true }><MdSearch className="glass"/></button>
                     </form>
                 </div>
                 <Link className="btn" to="/create">Create Shelf</Link>
